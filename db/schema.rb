@@ -11,17 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160104015215) do
+ActiveRecord::Schema.define(version: 20160104034743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "zetta_devices", force: :cascade do |t|
+  create_table "lamps", force: :cascade do |t|
+    t.string   "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "zetta_device_proxies", force: :cascade do |t|
     t.string   "zettable_type"
     t.integer  "zettable_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["zettable_type", "zettable_id"], name: "index_zetta_devices_on_zettable_type_and_zettable_id", using: :btree
+    t.index ["zettable_type", "zettable_id"], name: "index_zetta_device_proxies_on_zettable_type_and_zettable_id", using: :btree
   end
 
 end

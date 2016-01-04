@@ -1,16 +1,8 @@
 Rails.application.routes.draw do
-  get 'root/index'
+  root 'root#index'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :devices, controller: 'zetta_device_proxies'
 
   # Serve websocket cable requests in-process
   # mount ActionCable.server => '/cable'
-
-  root 'root#index'
-
-  resources :servers do
-    resources :devices, controller: 'zetta_devices'
-  end
-
-  root 'root#index'
 end
