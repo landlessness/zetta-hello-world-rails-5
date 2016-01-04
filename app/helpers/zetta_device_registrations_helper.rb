@@ -1,0 +1,2 @@
+module ZettaDeviceRegistrationsHelper
+end
