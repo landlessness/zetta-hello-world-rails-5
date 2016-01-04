@@ -3,4 +3,12 @@ Rails.application.routes.draw do
 
   # Serve websocket cable requests in-process
   # mount ActionCable.server => '/cable'
+
+  root 'root#index'
+
+  resources :servers do
+    resources :devices, controller: 'zetta_devices'
+  end
+
+  root 'root#index'
 end
